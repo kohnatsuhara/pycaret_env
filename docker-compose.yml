@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - ./workspace:/home/jovyan/workspace
+    ports:
+      - 127.0.0.1:8888:8888
+      - 127.0.0.1:8050:8050
+    working_dir: /home/jovyan/workspace
+    command: jupyter lab --port 8888 --ip=0.0.0.0 --allow-root  --NotebookApp.token='' --NotebookApp.password=''
