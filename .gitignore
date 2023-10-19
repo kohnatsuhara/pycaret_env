@@ -1,0 +1,6 @@
+workspace/logs.log
+workspace/.ipynb_checkpoints/pycaret_example-checkpoint.ipynb
+workspace/catboost_info/catboost_training.json
+workspace/catboost_info/learn_error.tsv
+workspace/catboost_info/time_left.tsv
+workspace/catboost_info/learn/events.out.tfevents
