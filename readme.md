@@ -17,7 +17,10 @@
 ## 利用方法
 1. 当リポジトリをクローン
 2. クローンしたローカルリポジトリにターミナルでアクセス
+    - pycaret_envのディレクトリに入る
+    - 例：cd ./pycaret_env
 3. 下記コマンドにて、dockerイメージのビルド＆コンテナの立ち上げ
+    - macもしくはwinの場合は先にdocker Desktopを立ち上げる
     - `docker compose up -d --build`
     - コンテナの立ち上げのみ（初回以降）は`docker compose up -d`
 4. 3.で立ち上げ後下記コマンドにてコンテナの状態確認
