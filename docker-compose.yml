@@ -2,9 +2,7 @@ version: '3'
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: dockerfile
+    image: kohnatsuhara/pycaret_env:latest
     volumes:
       - ./workspace:/home/jovyan/workspace
     ports:
