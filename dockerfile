@@ -18,9 +18,11 @@
 # Choose image
 FROM jupyter/base-notebook:latest
 
+USER root
 # name your environment and choose python 3.x version
 ARG conda_env=pycaret_full
 ARG py_ver=3.8
+RUN apt-get update && apt-get install -y git
 
 # add additional libraries you want with mamba 
 RUN mamba create --quiet --yes -p "${CONDA_DIR}/envs/${conda_env}" python=${py_ver} ipython ipykernel && \
@@ -33,8 +35,9 @@ RUN "${CONDA_DIR}/envs/${conda_env}/bin/python" -m ipykernel install --user --na
     fix-permissions "/home/${NB_USER}"
 
 # install pycaret full version
-RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install pycaret[full]==3.1.0
-
+# RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install pycaret[full]==3.1.0
+RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install git+https://github.com/pycaret/pycaret.git@master --upgrade
+RUN "${CONDA_DIR}/envs/${conda_env}/bin/pip" install explainerdashboard
 # prepend conda environment to path
 ENV PATH "${CONDA_DIR}/envs/${conda_env}/bin:${PATH}"
 
